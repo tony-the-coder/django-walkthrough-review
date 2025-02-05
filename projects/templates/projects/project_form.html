@@ -1,0 +1,20 @@
+{#This is used for two different pages:#}
+{#- Create a new project#}
+{#- Edit (update) an existing project#}
+{#It would be a good idea to always keep an eye out for the modelforms documentation#}
+
+{#First we extend the main template and then we create a form with the fields we want to display. We use the `form` object to create the form fields. We also add a submit button at the end of the form.#}
+
+{%  extends 'main.html' %}
+{% block content %}
+
+    <h1>Project Form</h1>
+    <form method="POST">
+{#    To assist in reducing the chance od data manipulation#}
+    {%  csrf_token %}
+        {{ form.as_p }}
+
+            <input type="submit">
+    </form>
+
+{% endblock %}
