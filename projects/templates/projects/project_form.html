@@ -9,7 +9,8 @@
 {% block content %}
 
     <h1>Project Form</h1>
-    <form method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
+    {#    The enctype attribute is necessary when you are using forms that have a file upload control#}
 {#    To assist in reducing the chance od data manipulation#}
     {%  csrf_token %}
         {{ form.as_p }}
