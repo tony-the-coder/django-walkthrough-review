@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block content %}
+
+    {{ msg }}
+
+
+
+
+<hr>
+<h1>Projects</h1>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Project</th>
+    <th>+ Votes</th>
+    <th>Votes</th>
+    <th>Created</th>
+    <th></th>
+    {% for project in projects %}
+    <tr>
+        <td>{{project.id}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.vote_ratio}}%</td>
+        <td>{{project.vote_total}}</td>
+        <td>{{project.created}}</td>
+        <td><a href="{% url 'project' project.id %} "> view </a></td>
+    {% endfor %}
+
+</table>
+{#<ul>#}
+{#    {% for project in projects %}#}
+{#    <li>Title: <a href="{% url 'project' project.id %} "> view</a>--- {{project.created}}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+
+{% endblock content %}
